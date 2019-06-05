@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 class TableView extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			rowLength: props.rowLength,
+		};
+
+	}
 	render(){
 		return (
 			<table>
@@ -17,11 +24,11 @@ class TableView extends React.Component{
 			this.props.rows.map(el => <tr>{el.map( e => <td>{e}</td> )} </tr> )
 			}
 			</tbody>
-			<tfooter>
-			<tr colspan>
-				<td> &copy; Moscow, 2018</td>
+			<tfoot>
+			<tr>
+				<td colSpan={this.state.rowLength}>  &copy; Moscow, 2018</td>
 			</tr>
-			</tfooter>
+			</tfoot>
 			</table>
 			);
 	}
