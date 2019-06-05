@@ -1,0 +1,18 @@
+.Loader{
+	display: block;
+	position: relative;	
+	max-width: 32px;
+	max-height: 32px;
+	padding: 2px;
+	margin: 2px;
+	animation: Load 3s infinite;
+}
+
+@keyframes Load {
+	0% {
+		transform:  rotate( 30deg);
+	}
+	 100% {
+	 	transform: rotate(360deg);
+	 }
+}
