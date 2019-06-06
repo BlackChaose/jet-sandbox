@@ -13,7 +13,7 @@ class TableView extends React.Component{
 			<table>
 			<thead>
 			{
-				this.props.headers.map(function(el){
+				this.props.headers.map((el)=>{
 				 return (<th>{el}</th>);
 				})
 			}

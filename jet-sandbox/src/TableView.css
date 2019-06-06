@@ -11,7 +11,7 @@
 	min-height: 20px;
 	vertical-align: bottom;
 }
-.TableView th, td{
+.TableView th{
 	padding: 15px;
 	text-align: center;
 }

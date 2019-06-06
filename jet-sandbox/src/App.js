@@ -16,8 +16,8 @@ class App extends React.Component{
      };
   }  
 
-  getData(self){
-    fetch('http://localhost:3043/api/table/Org')
+  getData(self,path){
+  fetch(path)
   .then(function(response){
       return response.json();
   })
@@ -26,6 +26,12 @@ class App extends React.Component{
   });  
   }
 
+  router(self,rt){
+    switch(rt){
+      case 'http://localhost:3043/table/Org': self.getData(self, 'http://localhost:3043/api/table/Org'); break;
+      case 'http://localhost:3043/table/:Org/:byName': self.getData(self, 'http://localhost:3043/api/table/Org/NameOrg/100'); break;
+    }
+  }
 
 
   loadTable(self){
@@ -52,7 +58,7 @@ class App extends React.Component{
   }
 
 componentDidMount() {
-    this.getData(this);
+    this.router(this, 'http://localhost:3043/table/:Org/:byName');
   }
 
   render() {  
