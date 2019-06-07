@@ -25,11 +25,11 @@ class App extends React.Component{
     self.setState({data:myJson});  
   });  
   }
-
+//FIXME: port 3042 => 3043
   router(self,rt){
     switch(rt){
-      case 'http://localhost:3043/table/Org': self.getData(self, 'http://localhost:3043/api/table/Org'); break;
-      case 'http://localhost:3043/table/:Org/:byName': self.getData(self, 'http://localhost:3043/api/table/Org/NameOrg/100'); break;
+      case 'http://localhost:3042/table/Org': self.getData(self, 'http://localhost:3042/api/table/Org'); break;
+      case 'http://localhost:3042/table/:Org/:byName': self.getData(self, 'http://localhost:3042/api/table/Org/NameOrg/100'); break;
     }
   }
 
@@ -58,7 +58,7 @@ class App extends React.Component{
   }
 
 componentDidMount() {
-    this.router(this, 'http://localhost:3043/table/:Org/:byName');
+    this.router(this, 'http://localhost:3042/table/:Org/:byName');
   }
 
   render() {  
