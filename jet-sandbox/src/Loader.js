@@ -12,9 +12,7 @@ class Loader extends React.Component{
 
 	render(){
 		return (
-				<div>
 				<img className = "Loader" src = {this.state.path} />
-				</div>
 			);
 	}
 

@@ -6,6 +6,7 @@
 	padding: 2px;
 	margin: 2px;
 	animation: Load 3s infinite;
+	text-align: center;
 }
 
 @keyframes Load {

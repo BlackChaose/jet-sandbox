@@ -7,7 +7,11 @@
  */
 import React from 'react';
 import './App.css';
-
+/*MUI-grid*/
+import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
+/*jet-sandbox components*/
 import Loader from './Loader.js';
 import TableView from './TableView.js';
 import PreviewTable from './PreviewTable.js';
@@ -47,13 +51,9 @@ class App extends React.Component{
 
   loadTable(self){
     if(self.state.data.length === 0){
-      return <Loader />
+      return <Col md = "4" md-offset="4" className="Loder-center"><Loader /></Col>
     }else{
-      //TODO:FIXME: add button показать для каждой строки
-      console.warn("!!!: ");
-      console.warn(self.state.data);     
-      return <PreviewTable header = {["№ п/п","Название организации","действие"]} rows = {self.state.data} />
-
+        return <Col md = "8"><PreviewTable header = {["№ п/п","Название организации","действие"]} rows = {self.state.data} /></Col>
     }    
   }
 
@@ -64,13 +64,33 @@ componentDidMount() {
   render() {  
     return (
     <div className="jet-sandbox">
-      <header className="jet-sandbox">
-      Jet Sandbox
-      </header>
-      <SearchForm />
-    {this.loadTable(this)}
-    <Pagination />
-    <SysInfo />
+    <Container fluid={true}>
+      <Row>
+        <Col md = "8">
+          <header className="jet-sandbox">
+            Jet Sandbox
+          </header>
+        </Col>
+      </Row>
+      <Row>
+        <Col md="4" md-offset="4">
+          <SearchForm />
+        </Col>
+      </Row>
+      <Row>
+          {this.loadTable(this)}
+      </Row>
+      <Row>
+        <Col md = "8">
+          <Pagination />
+        </Col>
+      </Row>
+      <Row>
+        <Col md = "8">
+          <SysInfo />
+        </Col>
+      </Row>      
+    </Container>
     </div>
   );
 }

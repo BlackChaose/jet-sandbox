@@ -20,9 +20,28 @@ class PreviewTable extends React.Component{
 		this.index = buf;
 		return buf;
 	}
+
+	showOrg(e){
+		    e.preventDefault();
+		    let rgx = /[^btnShow-]*\d/ig;
+		    let s = e.target.id;
+		    let resId = s.match(rgx);
+		    let path = "http://localhost:3042/api/table/Org/" + resId;
+	        fetch(path)
+  					.then(function(response){
+      						return response.json();
+
+  					})
+  					.then(function(myJson){
+  						alert({data:myJson});
+  						return {data:myJson};
+  					})
+
+    		
+	}
+
 	/** 
-	 * 
-	 * @todo event handlers for btnShow
+	 * @todo event handlers for btnShow!!!!!
 	 */
 	render(){
 		return (
@@ -34,7 +53,7 @@ class PreviewTable extends React.Component{
 			</thead>
 			<tbody>
 			{
-			this.props.rows.map(el => <tr className="PreviewTable"><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button   className="PreviewTable" id={"btnShow-" + el.IdOrg}>показать</button></td></tr> )
+			this.props.rows.map(el => <tr className="PreviewTable"><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button   className="PreviewTable" id={"btnShow-" + el.IdOrg} onClick={this.showOrg}>показать</button></td></tr> )
 			}
 			</tbody>
 			<tfoot>
