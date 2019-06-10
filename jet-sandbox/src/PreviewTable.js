@@ -6,33 +6,39 @@ class PreviewTable extends React.Component{
 		super(props);
 		this.state = {
 			rowLength: props.rowLength,
+			index: 0,
 		};
+		this.index = 0;
 
+	}
+
+	showIndex(){
+		let buf = this.index;
+		buf+=1;
+		this.index = buf;
+		return buf;
 	}
 	//FIXME: change for Preview Table with buttons "Show" -> redirect ot org card
 	render(){
 		return (
 			<table>
-			<thead>
-			{
-				this.props.headers.map((el)=>{
-				 return (<th>{el}</th>);
-				})
-			}
+			<thead>			
+				 <th>{this.props.header[0]}</th>
+				 <th>{this.props.header[1]}</th>
+				 <th>{this.props.header[2]}</th>			
 			</thead>
 			<tbody>
 			{
-
-			this.props.rows.map(el => <tr>{el.map( e => <td>{e}</td> )} </tr> )
+			this.props.rows.map(el => <tr><td>{this.showIndex()}</td><td>{el.NameOrg}</td><td><button id={"btnShow-" + el.IdOrg}>показать</button></td></tr> )
 			}
 			</tbody>
 			<tfoot>
 			<tr>
-				<td colSpan={this.state.rowLength}>  &copy; Moscow, 2018</td>
+				<td></td>
 			</tr>
 			</tfoot>
 			</table>
 			);
 	}
 } 
-export default TableView;
+export default PreviewTable;

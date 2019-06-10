@@ -4,6 +4,7 @@ import './TableView.css';
 import './Loader.css';
 import Loader from './Loader.js';
 import TableView from './TableView.js';
+import PreviewTable from './PreviewTable.js';
 
 class App extends React.Component{
   constructor(props) {
@@ -40,21 +41,10 @@ class App extends React.Component{
     if(self.state.data.length === 0){
       return <Loader />
     }else{
-      console.log(Array.isArray(self.state.data));
-
-      var arr = [];      
-      
-      self.state.data.reduce(function(acc, el){        
-        var buf = [];
-        Object.keys(el).forEach(function(key, idx) {           
-           buf.push(el[key]);               
-      });
-        acc.push(buf);
-        return acc;
-
-      }, arr);
-      //TODO:FIXME: add button показать для каждой строки     
-      return <TableView headers = {Object.keys(this.state.data[0])} rows = {arr} />
+      //TODO:FIXME: add button показать для каждой строки
+      console.warn("!!!: ");
+      console.warn(self.state.data);     
+      return <PreviewTable header = {["№ п/п","Название организации","действие"]} rows = {self.state.data} />
 
     }    
   }
