@@ -1,0 +1,12 @@
+/*
+SearchForm component - styles
+ */
+p.SearchForm{
+	display: block;
+	position: relative;
+	padding: 5px;
+	margin: 5px;
+	border: none;
+	border-radius: 4px;
+	background-color: orange;
+}

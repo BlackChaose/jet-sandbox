@@ -1,6 +1,9 @@
-/*PreviewTable*/
+/**
+ * PreviewTable - component
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './PreviewTable.css';
 class PreviewTable extends React.Component{
 	constructor(props){
 		super(props);
@@ -9,7 +12,6 @@ class PreviewTable extends React.Component{
 			index: 0,
 		};
 		this.index = 0;
-
 	}
 
 	showIndex(){
@@ -18,18 +20,21 @@ class PreviewTable extends React.Component{
 		this.index = buf;
 		return buf;
 	}
-	//FIXME: change for Preview Table with buttons "Show" -> redirect ot org card
+	/** 
+	 * 
+	 * @todo event handlers for btnShow
+	 */
 	render(){
 		return (
-			<table>
+			<table className="PreviewTable">
 			<thead>			
-				 <th>{this.props.header[0]}</th>
-				 <th>{this.props.header[1]}</th>
-				 <th>{this.props.header[2]}</th>			
+				 <th className="PreviewTable">{this.props.header[0]}</th>
+				 <th className="PreviewTable">{this.props.header[1]}</th>
+				 <th className="PreviewTable">{this.props.header[2]}</th>			
 			</thead>
 			<tbody>
 			{
-			this.props.rows.map(el => <tr><td>{this.showIndex()}</td><td>{el.NameOrg}</td><td><button id={"btnShow-" + el.IdOrg}>показать</button></td></tr> )
+			this.props.rows.map(el => <tr className="PreviewTable"><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button   className="PreviewTable" id={"btnShow-" + el.IdOrg}>показать</button></td></tr> )
 			}
 			</tbody>
 			<tfoot>

@@ -1,0 +1,17 @@
+/**
+ * pagination component -styles
+ * 
+ */
+
+p.Pagination {
+
+	display: block;
+	position: relative;
+	padding: 5px;
+	margin: 5px;
+	color: cyan;
+	border: none;
+	border-radius: 4px;
+	background-color: gold;
+
+}

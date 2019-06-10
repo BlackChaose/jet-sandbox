@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './TableView.css';
 class TableView extends React.Component{
 	constructor(props){
 		super(props);

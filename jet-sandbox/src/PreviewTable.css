@@ -1,18 +1,22 @@
 /*PreviewTable.css*/
 .PreviewTable table, th, td {
 	table-layout: auto;
-	border: 1px solid darkgray;
+	/*border: 1px solid darkgray;*/
+	border: none;
 	border-collapse: collapse;
+	border-radius: 4px;
 }
 .PreviewTable th{
 	text-align: left;
+	padding: 15px;
+	text-align: center;
+	background-color: darkgray;
+	border-radius: 4px;
 }
 .PreviewTable td{
 	min-height: 20px;
 	vertical-align: bottom;
+	border-radius: 4px;
 }
-.PreviewTable th{
-	padding: 15px;
-	text-align: center;
-}
+
 .PreviewTable tr:nth-child(even) {background-color: #f2f2f2;}

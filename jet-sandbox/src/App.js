@@ -1,10 +1,20 @@
+/**
+ * @todo: routes for redirect to Org's cards
+ * @todo: handler&views for PreviewTable - List Orgs's with buttons view(go to org's card)
+ */
+/**
+ * App - SPA for OrgsStore
+ */
 import React from 'react';
 import './App.css';
-import './TableView.css';
-import './Loader.css';
+
 import Loader from './Loader.js';
 import TableView from './TableView.js';
 import PreviewTable from './PreviewTable.js';
+import SearchForm from './SearchForm.js';
+import Pagination from './Pagination.js';
+import Menu from './Menu.js';
+import SysInfo from './SysInfo.js';
 
 class App extends React.Component{
   constructor(props) {
@@ -26,9 +36,7 @@ class App extends React.Component{
     self.setState({data:myJson});  
   });  
   }
-//FIXME: port 3042 => 3043
-//TODO: routes for redirect to Org's cards
-//TODO: handler&views for PreviewTable - List Orgs's with buttons view(go to org's card)
+
   router(self,rt){
     switch(rt){
       case 'http://localhost:3042/table/Org': self.getData(self, 'http://localhost:3042/api/table/Org'); break;
@@ -59,10 +67,10 @@ componentDidMount() {
       <header className="jet-sandbox">
       Jet Sandbox
       </header>
-    <TableView headers = {this.state.headers} rows = {this.state.rows} rowLength = {5}/>  
-    <button className = "btn">редактировать</button>  
-    <button className = "btn btn-info">показать</button>
+      <SearchForm />
     {this.loadTable(this)}
+    <Pagination />
+    <SysInfo />
     </div>
   );
 }
