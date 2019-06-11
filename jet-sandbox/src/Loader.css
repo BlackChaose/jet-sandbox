@@ -17,3 +17,13 @@
 	 	transform: rotate(360deg);
 	 }
 }
+span.Loader{
+	display: block;
+	position: relative;
+	max-width: 32px;
+	font-size: 9px;
+	font-style: italic;
+	font-weight: lighter;
+	color: silver;
+	animation: none;
+}
