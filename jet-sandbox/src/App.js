@@ -51,9 +51,9 @@ class App extends React.Component{
 
   loadTable(self){
     if(self.state.data.length === 0){
-      return <Col md = "4" md-offset="4" className="Loder-center"><Loader /></Col>
+      return <Col md="4" md-offset="4"><Loader /></Col>
     }else{
-        return <Col md = "8"><PreviewTable header = {["№ п/п","Название организации","действие"]} rows = {self.state.data} /></Col>
+        return <Col md="8"><PreviewTable header={["№ п/п","Название организации","действие"]} rows = {self.state.data} /></Col>
     }    
   }
 
@@ -71,6 +71,9 @@ componentDidMount() {
             Jet Sandbox
           </header>
         </Col>
+      </Row>
+      <Row>
+        <Col md="4" md-offset="4" className="Loder-center"><Loader /></Col>        
       </Row>
       <Row>
         <Col md="4" md-offset="4">

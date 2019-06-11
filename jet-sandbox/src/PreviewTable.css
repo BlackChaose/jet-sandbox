@@ -1,6 +1,6 @@
 /*PreviewTable.css*/
 .PreviewTable table, th, td {
-	table-layout: auto;
+/*	table-layout: auto;*/
 	/*border: 1px solid darkgray;*/
 	border: none;
 	border-collapse: collapse;

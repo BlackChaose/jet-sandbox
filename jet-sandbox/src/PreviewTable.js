@@ -4,12 +4,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './PreviewTable.css';
+import shortid from 'shortid';
+import _ from 'lodash';
+import Loader from './Loader.js';
+
 class PreviewTable extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
 			rowLength: props.rowLength,
 			index: 0,
+			answer: {},
 		};
 		this.index = 0;
 	}
@@ -22,6 +27,7 @@ class PreviewTable extends React.Component{
 	}
 
 	showOrg(e){
+		//@fixme: render info about organization or redirect
 		    e.preventDefault();
 		    let rgx = /[^btnShow-]*\d/ig;
 		    let s = e.target.id;
@@ -33,10 +39,10 @@ class PreviewTable extends React.Component{
 
   					})
   					.then(function(myJson){
-  						alert({data:myJson});
+  						alert(JSON.stringify({data:myJson}));
   						return {data:myJson};
-  					})
 
+  					});
     		
 	}
 
@@ -45,15 +51,17 @@ class PreviewTable extends React.Component{
 	 */
 	render(){
 		return (
-			<table className="PreviewTable">
-			<thead>			
+			<table className="PreviewTable" key={shortid.generate()}>
+			<thead>	
+			<tr>		
 				 <th className="PreviewTable">{this.props.header[0]}</th>
 				 <th className="PreviewTable">{this.props.header[1]}</th>
 				 <th className="PreviewTable">{this.props.header[2]}</th>			
+			</tr>
 			</thead>
 			<tbody>
 			{
-			this.props.rows.map(el => <tr className="PreviewTable"><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button   className="PreviewTable" id={"btnShow-" + el.IdOrg} onClick={this.showOrg}>показать</button></td></tr> )
+			this.props.rows.map(el => <tr className="PreviewTable" key={shortid.generate()}><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button  key={shortid.generate()} className="PreviewTable" id={"btnShow-" + el.IdOrg} onClick={this.showOrg}>показать</button></td></tr> )
 			}
 			</tbody>
 			<tfoot>
