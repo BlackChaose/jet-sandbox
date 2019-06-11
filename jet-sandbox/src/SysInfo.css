@@ -7,11 +7,11 @@ p.SysInfo{
 	max-widht: 50%;
 	padding: 5px;
 	margin: 5px;
-	font-size: large;
-	font-weight: bold;
+	font-size: medium;
+	
 	font-family: monospace;
-	color: red;
+	color: tomato;
 	border: none;
 	border-radius: 4px;
-	background-color: black;
+	background-color: white;
 }

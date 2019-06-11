@@ -4,7 +4,6 @@
  */
 
 p.Pagination {
-
 	display: block;
 	position: relative;
 	padding: 5px;
@@ -14,4 +13,16 @@ p.Pagination {
 	border-radius: 4px;
 	background-color: gold;
 
+}
+.Pagination, a, li{
+	display: inline;	
+	text-decoration: none;
+	list-style-type: none;
+	min-height: 30px;
+	border-radius: 4px;
+	background-color: #f2f2f2;
+}
+.Pagination ul li {
+	margin: 5px;
+	padding: 5px;
 }

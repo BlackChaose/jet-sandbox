@@ -51,9 +51,9 @@ class App extends React.Component{
 
   loadTable(self){
     if(self.state.data.length === 0){
-      return <Col md="4" md-offset="4"><Loader /></Col>
+      return <Loader />
     }else{
-        return <Col md="10"><PreviewTable header={["№ п/п","Название организации","действие"]} rows = {self.state.data} /></Col>
+        return <PreviewTable header={["№ п/п","Название организации","действие"]} rows = {self.state.data} />
     }    
   }
 
@@ -66,27 +66,25 @@ componentDidMount() {
     <div className="jet-sandbox">
     <Container fluid={true}>
       <Row>
-        <Col md = "8">
+        <Col md = "10">
           <header className="jet-sandbox">
             Jet Sandbox
           </header>
         </Col>
       </Row>
       <Row>
-        <Col md="10" >
           <SearchForm />
-        </Col>
       </Row>
       <Row>
-          {this.loadTable(this)}
+          <Col md="10">{this.loadTable(this)}</Col>
       </Row>
       <Row>
         <Col md="8" md-offset="1">
-          <Pagination />
+          <Pagination pages={['<<','<',1,2,3,4,5,6,7,8,9,10,'>','>>']} path={"http://localhost:3000/api/table/Org/list/"} />
         </Col>
       </Row>
       <Row>
-        <Col md="10">
+        <Col md="8" md-offset="1">
           <SysInfo />
         </Col>
       </Row>      

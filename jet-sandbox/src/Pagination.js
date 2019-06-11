@@ -11,9 +11,16 @@ class Pagination extends React.Component{
 		super(props);
 		this.state = {};		
 	}
+	loadLinks(self){
+		return self.props.pages.map(el=><li><a href={self.props.path+el}>{el}</a></li>);
+	}
 	render(){
 		return (
-			<p className="Pagination">This will be Pagination</p>
+			<div className="Pagination mui--text-center">
+			<ul>
+				{this.loadLinks(this)}
+			</ul>
+			</div>
 			);
 	}
 }

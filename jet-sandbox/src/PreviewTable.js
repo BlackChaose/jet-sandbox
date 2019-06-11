@@ -7,6 +7,7 @@ import './PreviewTable.css';
 import shortid from 'shortid';
 import _ from 'lodash';
 import Loader from './Loader.js';
+import ButtonView from './ButtonView.js';
 
 class PreviewTable extends React.Component{
 	constructor(props){
@@ -47,7 +48,7 @@ class PreviewTable extends React.Component{
 	}
 
 	/** 
-	 * @todo event handlers for btnShow!!!!!
+	 * @todo event handlers for btnShow!!!!! + add MUI grid and button "просмотр" - for descktop - text, for mobile - icon
 	 */
 	render(){
 		return (
@@ -61,7 +62,7 @@ class PreviewTable extends React.Component{
 			</thead>
 			<tbody>
 			{
-			this.props.rows.map(el => <tr className="PreviewTable" key={shortid.generate()}><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td><button  key={shortid.generate()} className="PreviewTable" id={"btnShow-" + el.IdOrg} onClick={this.showOrg}>показать</button></td></tr> )
+			this.props.rows.map(el => <tr className="PreviewTable" key={shortid.generate()}><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td className="mui--align-middle mui--text-center"><ButtonView key={shortid.generate()} color=""  id={"btnShow-" + el.IdOrg} onClick={this.showOrg} text="просмотр"></ButtonView></td></tr> )
 			}
 			</tbody>
 			<tfoot>
