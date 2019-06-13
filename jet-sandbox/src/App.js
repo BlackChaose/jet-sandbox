@@ -51,9 +51,9 @@ class App extends React.Component{
 
   loadTable(self){
     if(self.state.data.length === 0){
-      return <Loader />
+      return <Col md="1" md-offset="5" className="mui--text-center"><Loader /></Col>
     }else{
-        return <PreviewTable header={["№ п/п","Название организации","действие"]} rows = {self.state.data} />
+        return <Col md="10"><PreviewTable header={["№ п/п","Название организации","действие"]} rows = {self.state.data} /></Col>
     }    
   }
 
@@ -76,7 +76,7 @@ componentDidMount() {
           <SearchForm />
       </Row>
       <Row>
-          <Col md="10">{this.loadTable(this)}</Col>
+          {this.loadTable(this)}
       </Row>
       <Row>
         <Col md="8" md-offset="1">

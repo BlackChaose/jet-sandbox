@@ -8,6 +8,11 @@ import shortid from 'shortid';
 import _ from 'lodash';
 import Loader from './Loader.js';
 import ButtonView from './ButtonView.js';
+import Modal from './Modal.js';
+/*MUI-grid*/
+import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
 
 class PreviewTable extends React.Component{
 	constructor(props){
@@ -16,6 +21,7 @@ class PreviewTable extends React.Component{
 			rowLength: props.rowLength,
 			index: 0,
 			answer: {},
+			LoaderView: false,
 		};
 		this.index = 0;
 	}
@@ -27,6 +33,14 @@ class PreviewTable extends React.Component{
 		return buf;
 	}
 
+	showLoader(self){
+		if(self.state.LoaderView === true){
+			return <Modal><div className="ModalCenter"><Loader/></div></Modal>
+		}
+		else return null;
+	}
+
+
 	showOrg(e){
 		//@fixme: render info about organization or redirect
 			// console.log(e.currentTarget);
@@ -36,12 +50,21 @@ class PreviewTable extends React.Component{
 		    let resId = s.match(rgx);
 		    let path = "http://localhost:3042/api/table/Org/" + resId;
 		    // console.log("!! click on " + e.target.id + " ||| " + path);
+		    
+		    //fixme: - not work. parser js not view this. ... 
+		    this.setState({LoaderView: true});
+		    this.showLoader(this);
+		    let self = this;
 	        fetch(path)
   					.then(function(response){
+  							self.setState({LoaderView: false});
+		    				self.showLoader(self);
       						return response.json();
 
   					})
   					.then(function(myJson){
+  						//@fixme: add components - ViewOrg / EditOrg - and Show its here.
+  						//@fixme: add Error's handler & component ShowError
   						alert(JSON.stringify({data:myJson}));
   						return {data:myJson};
 
@@ -53,7 +76,8 @@ class PreviewTable extends React.Component{
 	 * @todo event handlers for btnShow!!!!! + add MUI grid and button "просмотр" - for descktop - text, for mobile - icon	
 	 */
 	render(){
-		return (
+		return (<>
+			{this.showLoader(this)}
 			<table className="PreviewTable" key={shortid.generate()}>
 			<thead>	
 			<tr>		
@@ -64,7 +88,7 @@ class PreviewTable extends React.Component{
 			</thead>
 			<tbody>
 			{
-			this.props.rows.map(el => <tr className="PreviewTable" key={shortid.generate()}><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td className="mui--align-middle mui--text-center"><ButtonView key={shortid.generate()} color=""  idBtnView={"btnShow-" + el.IdOrg} onClick={this.showOrg} text="просмотр"></ButtonView></td></tr> )
+			this.props.rows.map(el => <tr className="PreviewTable" key={shortid.generate()}><td className="PreviewTable">{this.showIndex()}</td><td className="PreviewTable">{el.NameOrg}</td><td className="mui--align-middle mui--text-center"><ButtonView key={shortid.generate()} color=""  idBtnView={"btnShow-" + el.IdOrg} onClick={this.showOrg.bind(this)} text="просмотр"></ButtonView></td></tr> )
 			}
 			</tbody>
 			<tfoot>
@@ -73,6 +97,7 @@ class PreviewTable extends React.Component{
 			</tr>
 			</tfoot>
 			</table>
+			</>
 			);
 	}
 } 
