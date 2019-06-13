@@ -21,16 +21,16 @@ class ButtonView extends React.Component{
 		this.state = {};		
 	}
 	showButton(self){
-		console.log("in show Button!!!");
+		//console.log(self.props.onClick);
 		if(self.props.view === "text"){
-			return <Button variant="flat" color="primary">{self.props.text}</Button>
+			return <Button variant="flat" color="primary"  onClick={self.props.onClick}>{self.props.text}</Button>
 		}else{
-			return <Button variant="flat" color={this.props.color}><img className="ButtonView mui--hidden-md mui--hidden-xl mui--visible-xs mui--visible-sm" src="img/search-solid.svg" width="16" height="16" /><span className="mui--visible-md mui--visible-xl mui--hidden-xs mui--hidden-sm">{self.props.text}</span></Button>
+			return <Button variant="flat" color={this.props.color}  onClick={self.props.onClick}><img className="ButtonView mui--hidden-md mui--hidden-xl mui--visible-xs mui--visible-sm" src="img/search-solid.svg" width="16" height="16" /><span className="mui--visible-md mui--visible-xl mui--hidden-xs mui--hidden-sm">{self.props.text}</span></Button>
 		}
 	}
 	render(){
 
-		return (<div>{this.showButton(this)}</div>);
+		return (<div id={this.props.idBtnView}>{this.showButton(this)}</div>);
 	}
 }
 export default ButtonView;

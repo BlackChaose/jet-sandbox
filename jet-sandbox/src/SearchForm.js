@@ -64,7 +64,7 @@ class SearchForm extends React.Component{
  			</Row>
  			<Row>
  				<Col md="10">
- 					<p className="SearchForm btnBg mui--text-center"><ButtonView color="danger" view="icon" text="Найти">Найти</ButtonView></p>
+ 					<p className="SearchForm btnBg mui--text-center"><ButtonView color="danger" view="icon" text="Найти" onClick={()=>{console.log("in onClick by SearchForm");}}>Найти</ButtonView></p>
  				</Col>
  			</Row>
  			</Container>
