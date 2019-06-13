@@ -6,13 +6,16 @@ import ReactDOM from 'react-dom';
 import './PreviewTable.css';
 import shortid from 'shortid';
 import _ from 'lodash';
-import Loader from './Loader.js';
-import ButtonView from './ButtonView.js';
-import Modal from './Modal.js';
 /*MUI-grid*/
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
+/*other components*/
+import Loader from './Loader.js';
+import ButtonView from './ButtonView.js';
+import Modal from './Modal.js';
+import ViewOrg from './ViewOrg.js';
+
 
 class PreviewTable extends React.Component{
 	constructor(props){
@@ -22,6 +25,7 @@ class PreviewTable extends React.Component{
 			index: 0,
 			answer: {},
 			LoaderView: false,
+			ViewOrgInfo: false,
 		};
 		this.index = 0;
 	}
@@ -40,6 +44,15 @@ class PreviewTable extends React.Component{
 		else return null;
 	}
 
+	showViewOrg(self){
+		if(self.state.ViewOrgInfo === true){
+			console.log("show ViewOrg!!!!! " + self.state.ViewOrgInfo);
+		return <Modal><div className="ModalCenter">!!!! DEBUG !!!!</div></Modal>
+		}else {
+			console.log("not show ViewOrg");
+			return null;};
+	}
+
 
 	showOrg(e){
 		//@fixme: render info about organization or redirect
@@ -53,21 +66,24 @@ class PreviewTable extends React.Component{
 		    
 		    //fixme: - not work. parser js not view this. ... 
 		    this.setState({LoaderView: true});
-		    this.showLoader(this);
+		    this.showLoader(this);		  
 		    let self = this;
 	        fetch(path)
   					.then(function(response){
   							self.setState({LoaderView: false});
 		    				self.showLoader(self);
+	  						self.setState({ViewOrgInfo: true});			
+  							self.showViewOrg(self);
       						return response.json();
 
   					})
   					.then(function(myJson){
   						//@fixme: add components - ViewOrg / EditOrg - and Show its here.
   						//@fixme: add Error's handler & component ShowError
-  						alert(JSON.stringify({data:myJson}));
-  						return {data:myJson};
-
+  						//alert(JSON.stringify({data:myJson}));  		
+  						//console.warn("=--> " + JSON.stringify(myJson));	
+  						// self.setState({ViewOrgInfo: true});			
+  						// self.showViewOrg(self,{data:myJson});
   					});
     		
 	}

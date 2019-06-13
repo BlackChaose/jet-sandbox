@@ -1,0 +1,30 @@
+/**
+ * VoewOrg component's style
+ */
+
+.ViewOrg{
+	display: block;
+	position: fixed;	
+	background-color: white;
+	border: 1px solid gray;
+	border-right-style: 4px;
+	box-shadow: 5px 5px blue;
+	z-index: 2000;
+}
+.DEBUG {
+	display: block;
+	position: fixed;	
+	
+	top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);	
+	
+	color: tomato;
+	
+	background-color: white;
+	border: 1px solid gray;
+	border-right-style: 4px;
+	box-shadow: 5px 5px blue;
+	z-index: 2000;
+}
