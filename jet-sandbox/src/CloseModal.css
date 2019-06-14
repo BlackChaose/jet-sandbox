@@ -5,8 +5,13 @@ styles for CloseModal component
 .CloseModal-right{
 	display: block;
 	position: fixed;
-	color: white;
 	right: 4%;
 	top: 4%;
 	z-index: 2019;
+}
+.CloseModal-right:hover{
+	cursor: pointer;
+}
+.CloseModal-right:active{
+	border: 1px solid cyan;
 }

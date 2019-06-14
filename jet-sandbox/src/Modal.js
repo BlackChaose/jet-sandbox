@@ -16,28 +16,41 @@ class Modal extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-		openModalWIndow: true,
+		showModalWindow: 'show',			
 		};		
 	}
-	closeModalWindow(){
-		console.log();
+
+	closeModalWindow(e){
+		e.preventDefault();
+		console.log("CLOSE!");
+		console.log(e.currentTarget);
+		//@fixme:!!
+		this.setState({showModalWindow:'hide'});
 	}
 
 	showCloseModal(){
 		if(this.props.showClose){
-			return <CloseModal moveTo="right" width="24px" onClick={this.closeModalWindow}></CloseModal>
+			return <CloseModal moveTo="right" width="24px" onClick={this.closeModalWindow.bind(this)}></CloseModal>
 		}
 		else return null;
 	}
 
-	render(){
+	showModal(){
 		let { children, className, ...reactProps } = this.props;
+		if(this.props.showState){
+			this.setState({showModalWindow:'show'});
+		}
 		return ( 
-		<div className="Modal">
+		<div className={'Modal-' + this.state.showModalWindow}>
 		{this.showCloseModal()}
 		{children}
 		</div>
 			);
+	}
+
+	render(){
+		//@fixme!
+		return (<>{this.showModal()}</>);
 	}
 }
 export default Modal;
