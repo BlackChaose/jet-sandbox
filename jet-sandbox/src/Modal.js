@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 import shortid from 'shortid';
+import CloseModal from './CloseModal.js';
 
 /*MUI-grid*/
 import Container from 'muicss/lib/react/container';
@@ -19,10 +20,21 @@ class Modal extends React.Component{
 		};		
 	}
 
-		render(){
+	showCloseModal(){
+		if(this.props.showClose){
+			return <CloseModal moveTo="right" width="24px"></CloseModal>
+		}
+		else return null;
+	}
+
+	render(){
 		let { children, className, ...reactProps } = this.props;
-		return <div className="Modal">{children}</div>;
-			
+		return ( 
+		<div className="Modal">
+		{this.showCloseModal()}
+		{children}
+		</div>
+			);
 	}
 }
 export default Modal;

@@ -11,7 +11,7 @@ import './CloseModal.css';
 /*for key generation*/
 import shortid from 'shortid';
 
-class CloseMoadl extends React.Component{
+class CloseModal extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {};		
@@ -20,7 +20,7 @@ class CloseMoadl extends React.Component{
 	render(){
 		let { children, className, ...reactProps } = this.props;
 		return (
-			<img src="img/window-close-regular.svg" width: "32px"/>
+			<img src="img/window-close-regular.svg" width={this.props.width}/>
 			);
 	}
 }
