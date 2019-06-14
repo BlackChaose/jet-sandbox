@@ -26,6 +26,7 @@ class PreviewTable extends React.Component{
 			answer: {},
 			LoaderView: false,
 			ViewOrgInfo: false,
+			OrgInfo: {},
 		};
 		this.index = 0;
 	}
@@ -44,10 +45,9 @@ class PreviewTable extends React.Component{
 		else return null;
 	}
 
-	showViewOrg(self,dt){
+	showViewOrg(self){
 		if(self.state.ViewOrgInfo === true){
-			console.log("show ViewOrg!!!!! " + self.state.ViewOrgInfo);
-		return <ViewOrg dataInfo={dt}></ViewOrg>
+			return <ViewOrg dataInfo={self.state.OrgInfo}></ViewOrg>
 		}else {
 			console.log("not show ViewOrg");
 			return null;};
@@ -77,8 +77,8 @@ class PreviewTable extends React.Component{
 
   					})
   					.then(function(myJson){
-  						 self.setState({ViewOrgInfo: true});			
-  						 self.showViewOrg(self,{data:myJson});
+  						 self.setState({ViewOrgInfo: true});
+  						 self.setState({OrgInfo: myJson});
   					});
     		
 	}
@@ -89,7 +89,7 @@ class PreviewTable extends React.Component{
 	render(){
 		return (<>
 			{this.showLoader(this)}
-			{this.showViewOrg(this,{})}
+			{this.showViewOrg(this)}
 			<table className="PreviewTable" key={shortid.generate()}>
 			<thead>	
 			<tr>		

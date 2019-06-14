@@ -1,15 +1,17 @@
 /*
- * Cell component
+ * CloseModal component
  */
 /*react*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 /*component style*/
-import './Cell.css';
+
+import './CloseModal.css';
+
 /*for key generation*/
 import shortid from 'shortid';
 
-class Cell extends React.Component{
+class CloseMoadl extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {};		
@@ -18,11 +20,9 @@ class Cell extends React.Component{
 	render(){
 		let { children, className, ...reactProps } = this.props;
 		return (
-			<span className={"Cell-"+ this.props.subclass}>
-			{children}
-			</span>
+			<img src="img/window-close-regular.svg" width: "32px"/>
 			);
 	}
 }
 
-export default Cell;
+export default CloseModal;

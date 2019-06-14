@@ -12,3 +12,25 @@
 	max-width: 300px;
 	border: 1px solid black;
 }
+
+.Cell-header{
+	display: block;
+	position: relative;
+	padding: 5px;
+	font-weight: bold;
+	text-align: left;
+	word-break: break-all;
+	max-width: 75%;
+
+}
+
+.Cell-content{
+	display: block;
+	position: relative;
+	padding: 5px;
+	font-weight: normal;
+	text-align: left;
+	word-break: break-all;
+	max-width: 100%;
+
+}

@@ -44,3 +44,9 @@
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+
+.ViewOrg .mui-appbar .mui--text-left{
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: large;
+}
