@@ -14,12 +14,12 @@ import _ from 'lodash';
 import Loader from './Loader.js';
 import ButtonView from './ButtonView.js';
 import Modal from './Modal.js';
+import Cell from './Cell.js';
 /*MUI-grid*/
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Appbar from 'muicss/lib/react/appbar';
-import Panel from 'muicss/lib/react/panel';
 
 class ViewOrg extends React.Component{
 	constructor(props){
@@ -29,241 +29,242 @@ class ViewOrg extends React.Component{
 
 	showOrgInfo(obj){
 		/*всего 43 пункта ??*/
+		/*@todo добить!!!*/
 		return (
 			<Container fluid={true}>
 			<Row style = {{backgroundColor: "#07B49C"}}>
-				<Col md = "4" className="mui--text-center">Поле</Col>
-				<Col md = "8" className="mui--text-center">в хранилище</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Поле</Cell></Col>
+				<Col md = "8" className="mui--text-center"><Cell>в хранилище</Cell></Col>
 			</Row>
 
 			<Row>
-				<Col md = "4" className="mui--text-center">Название организации</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Название организации</Cell></Col>
 				<Col md = "8" className="mui--text-center">{obj.NameOrg}</Col>
 			</Row>
 
 			<Row>
-				<Col md = "4" className="mui--text-center">Название организации без ОПФ</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Название организации без ОПФ</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Наименование организации в дательном падеже</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Наименование организации в дательном падеже</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 
 			<Row>
-				<Col md = "4" className="mui--text-center">Сокращённое название организации</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Сокращённое название организации</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 
 			<Row>
-				<Col md = "4" className="mui--text-center">Сокращённое название по версии Минобрнауки России</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Сокращённое название по версии Минобрнауки России</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 
 			<Row>
-				<Col md = "4" className="mui--text-center">Название на английском языке</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Название на английском языке</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Ведомственная подчинённость</Col>
+				<Col md = "4" className="mui--text-left"><Cell>Ведомственная подчинённость</Cell></Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Название головной организации</Col>
+				<Col md = "4" className="mui--text-left">Название головной организации</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Название в уставе начинается с маленькой буквы</Col>
+				<Col md = "4" className="mui--text-left">Название в уставе начинается с маленькой буквы</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Является грузом</Col>
+				<Col md = "4" className="mui--text-left">Является грузом</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">ИНН/КПП организации</Col>
+				<Col md = "4" className="mui--text-left">ИНН/КПП организации</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Сведения об учёте в налоговом органе</Col>
+				<Col md = "4" className="mui--text-left">Сведения об учёте в налоговом органе</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Присвоение ОГРН</Col>
+				<Col md = "4" className="mui--text-left">Присвоение ОГРН</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Почтовый адрес</Col>
+				<Col md = "4" className="mui--text-left">Почтовый адрес</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Юридический адрес</Col>
+				<Col md = "4" className="mui--text-left">Юридический адрес</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКПО</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКПО</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКАТО</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКАТО</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКТМО</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКТМО</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКФС</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКФС</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКОПФ 2012</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКОПФ 2012</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКОПФ (старый)</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКОПФ (старый)</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Код по ОКОПФ 2015</Col>
+				<Col md = "4" className="mui--text-left">Код по ОКОПФ 2015</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Основной вид деятельности по ОКВЭД</Col>
+				<Col md = "4" className="mui--text-left">Основной вид деятельности по ОКВЭД</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Основной вид деятельности по ОКВЭД (ред.2)</Col>
+				<Col md = "4" className="mui--text-left">Основной вид деятельности по ОКВЭД (ред.2)</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Контакты организации</Col>
+				<Col md = "4" className="mui--text-left">Контакты организации</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Контакты руководителя</Col>
+				<Col md = "4" className="mui--text-left">Контакты руководителя</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Главный бухгалтер</Col>
+				<Col md = "4" className="mui--text-left">Главный бухгалтер</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Контакты главного бухгалтера</Col>
+				<Col md = "4" className="mui--text-left">Контакты главного бухгалтера</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Лицо ответсвтенное за бюджетное обязательство</Col>
+				<Col md = "4" className="mui--text-left">Лицо ответсвтенное за бюджетное обязательство</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Контакты лица ответсвтенного за БО</Col>
+				<Col md = "4" className="mui--text-left">Контакты лица ответсвтенного за БО</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Банк</Col>
+				<Col md = "4" className="mui--text-left">Банк</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">УФК</Col>
+				<Col md = "4" className="mui--text-left">УФК</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Реквизиты для государственных организаций не федерального подчинения</Col>
+				<Col md = "4" className="mui--text-left">Реквизиты для государственных организаций не федерального подчинения</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">КБК</Col>
+				<Col md = "4" className="mui--text-left">КБК</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Генеральное разрешение</Col>
+				<Col md = "4" className="mui--text-left">Генеральное разрешение</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Название учредительного документа</Col>
+				<Col md = "4" className="mui--text-left">Название учредительного документа</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Документ-основание для руководителя</Col>
+				<Col md = "4" className="mui--text-left">Документ-основание для руководителя</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Организация ликвидирована</Col>
+				<Col md = "4" className="mui--text-left">Организация ликвидирована</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Сведения о переименовании</Col>
+				<Col md = "4" className="mui--text-left">Сведения о переименовании</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Id организации в хранилище</Col>
+				<Col md = "4" className="mui--text-left">Id организации в хранилище</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Служебные данные</Col>
+				<Col md = "4" className="mui--text-left">Служебные данные</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Контакты ЭБ</Col>
+				<Col md = "4" className="mui--text-left">Контакты ЭБ</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Документы</Col>
+				<Col md = "4" className="mui--text-left">Документы</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Вхождение в приказ об изменениях (только активные конкурсы)</Col>
+				<Col md = "4" className="mui--text-left">Вхождение в приказ об изменениях (только активные конкурсы)</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Конкурс (№ приказа о назначении стипендии)</Col>
+				<Col md = "4" className="mui--text-left">Конкурс (№ приказа о назначении стипендии)</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
 			<Row>
-				<Col md = "4" className="mui--text-center">Список задействованных источников</Col>
+				<Col md = "4" className="mui--text-left">Список задействованных источников</Col>
 				<Col md = "8" className="mui--text-center">{}</Col>
 			</Row>
 			
@@ -274,9 +275,10 @@ class ViewOrg extends React.Component{
 	render(){
 		return (
 			<Modal>
-			<h1>DEBUG!</h1>
-			<Appbar>{this.props.dataInfo[0].NameOrgShort}</Appbar>
-			<Panel>{this.showOrgInfo(this.props.dataInfo[0])}</Panel>
+			<div className="ViewOrg">
+			<Appbar>{this.props.dataInfo.NameOrgShort}</Appbar>
+			<div className="ViewOrgBody">{this.showOrgInfo(this.props.dataInfo)}</div>
+			</div>
 			</Modal>
 			);
 	}

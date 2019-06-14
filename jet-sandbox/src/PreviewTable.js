@@ -44,10 +44,10 @@ class PreviewTable extends React.Component{
 		else return null;
 	}
 
-	showViewOrg(self){
+	showViewOrg(self,dt){
 		if(self.state.ViewOrgInfo === true){
 			console.log("show ViewOrg!!!!! " + self.state.ViewOrgInfo);
-		return <Modal><div className="ModalCenter">!!!! DEBUG !!!!</div></Modal>
+		return <ViewOrg dataInfo={dt}></ViewOrg>
 		}else {
 			console.log("not show ViewOrg");
 			return null;};
@@ -70,20 +70,15 @@ class PreviewTable extends React.Component{
 		    let self = this;
 	        fetch(path)
   					.then(function(response){
+  							
   							self.setState({LoaderView: false});
 		    				self.showLoader(self);
-	  						self.setState({ViewOrgInfo: true});			
-  							self.showViewOrg(self);
       						return response.json();
 
   					})
   					.then(function(myJson){
-  						//@fixme: add components - ViewOrg / EditOrg - and Show its here.
-  						//@fixme: add Error's handler & component ShowError
-  						//alert(JSON.stringify({data:myJson}));  		
-  						//console.warn("=--> " + JSON.stringify(myJson));	
-  						// self.setState({ViewOrgInfo: true});			
-  						// self.showViewOrg(self,{data:myJson});
+  						 self.setState({ViewOrgInfo: true});			
+  						 self.showViewOrg(self,{data:myJson});
   					});
     		
 	}
@@ -94,6 +89,7 @@ class PreviewTable extends React.Component{
 	render(){
 		return (<>
 			{this.showLoader(this)}
+			{this.showViewOrg(this,{})}
 			<table className="PreviewTable" key={shortid.generate()}>
 			<thead>	
 			<tr>		

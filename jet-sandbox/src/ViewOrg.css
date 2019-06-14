@@ -4,27 +4,43 @@
 
 .ViewOrg{
 	display: block;
-	position: fixed;	
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	width: 95%;
+	height: 95%;
+	margin: 5px;
+	padding: 10px;				
 	background-color: white;
 	border: 1px solid gray;
-	border-right-style: 4px;
-	box-shadow: 5px 5px blue;
+	border-radius: 16px;
 	z-index: 2000;
 }
-.DEBUG {
+
+.ViewOrgBody{
 	display: block;
-	position: fixed;	
-	
-	top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);	
-	
-	color: tomato;
-	
-	background-color: white;
+	position: relative;
+	/*scrolling*/
+	max-height: calc(100vh - 100px);
+    overflow-y: auto;
+
+	word-break: break-all;
+
 	border: 1px solid gray;
-	border-right-style: 4px;
-	box-shadow: 5px 5px blue;
-	z-index: 2000;
+	overflow-x: scroll;
+	z-index: 2001;
+
+
+}
+.ViewOrgBody::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+.ViewOrgBody::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.ViewOrgBody::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }

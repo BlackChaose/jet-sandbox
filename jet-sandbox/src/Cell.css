@@ -1,0 +1,14 @@
+/**
+ * Cell component's stylea
+ * 
+ */
+
+.Cell{
+	display: inline-block;
+	position: relative;
+	padding: 5px;
+	text-align: left;
+	word-break: break-all;
+	max-width: 300px;
+	border: 1px solid black;
+}
