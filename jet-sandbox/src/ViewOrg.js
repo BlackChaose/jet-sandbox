@@ -286,7 +286,7 @@ class ViewOrg extends React.Component{
 			objData = this.props.dataInfo[0];
 		}
 		return (
-			<Modal>
+			<Modal showClose={true}>
 			<div className="ViewOrg">
 			<Appbar className="mui--text-left">
 			{objData.NameOrgShort}

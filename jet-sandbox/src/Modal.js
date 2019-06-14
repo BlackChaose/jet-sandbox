@@ -16,13 +16,16 @@ class Modal extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-		
+		openModalWIndow: true;
 		};		
+	}
+	closeModalWindow(){
+		console.log();
 	}
 
 	showCloseModal(){
 		if(this.props.showClose){
-			return <CloseModal moveTo="right" width="24px"></CloseModal>
+			return <CloseModal moveTo="right" width="24px" onClick={this.closeModalWindow}></CloseModal>
 		}
 		else return null;
 	}
