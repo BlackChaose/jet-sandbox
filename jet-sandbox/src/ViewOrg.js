@@ -290,7 +290,7 @@ class ViewOrg extends React.Component{
 			<div className="ViewOrg">
 			<Appbar className="mui--text-left">
 			{objData.NameOrgShort}
-			<CloseModal style={{"textAlign": "right"}}/>			
+			{/*<CloseModal style={{"textAlign": "right"}}/>			*/}
 			</Appbar>
 			<div className="ViewOrgBody">{this.showOrgInfo(objData)}</div>
 			</div>
