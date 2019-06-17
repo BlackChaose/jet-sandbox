@@ -16,16 +16,15 @@ class Modal extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-		showModalWindow: 'show',			
+		openModalWindow: true,
+		viewWin: true,
 		};		
 	}
-
 	closeModalWindow(e){
 		e.preventDefault();
-		console.log("CLOSE!");
-		console.log(e.currentTarget);
-		//@fixme:!!
-		this.setState({showModalWindow:'hide'});
+		console.log(e.currentTagret);
+		console.log("close!");
+		this.setState({viewWin: false});
 	}
 
 	showCloseModal(){
@@ -35,13 +34,15 @@ class Modal extends React.Component{
 		else return null;
 	}
 
-	showModal(){
+	/*fixme - разберись со стейтами !!!*/
+
+	render(){
 		let { children, className, ...reactProps } = this.props;
 		if(this.props.showState){
 			this.setState({showModalWindow:'show'});
 		}
 		return ( 
-		<div className={'Modal-' + this.state.showModalWindow}>
+		<div className="Modal" style={{display: this.state.viewWin}}>
 		{this.showCloseModal()}
 		{children}
 		</div>
@@ -49,7 +50,6 @@ class Modal extends React.Component{
 	}
 
 	render(){
-		//@fixme!
 		return (<>{this.showModal()}</>);
 	}
 }

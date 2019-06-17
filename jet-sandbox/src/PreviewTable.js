@@ -47,7 +47,7 @@ class PreviewTable extends React.Component{
 
 	showViewOrg(self){
 		if(self.state.ViewOrgInfo === true){
-			return <ViewOrg dataInfo={self.state.OrgInfo}></ViewOrg>
+			return <ViewOrg dataInfo={self.state.OrgInfo} viewWin={true}></ViewOrg>
 		}else {
 			console.log("not show ViewOrg");
 			return null;};
