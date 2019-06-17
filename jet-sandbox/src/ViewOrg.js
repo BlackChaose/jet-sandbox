@@ -278,15 +278,12 @@ class ViewOrg extends React.Component{
 	}
 		
 	render(){
-		console.log(this.props.dataInfo);
-		console.log("----------------> length");
-		console.log(this.props.dataInfo.length);
 		let objData={};
 		if(this.props.dataInfo.length>0){
 			objData = this.props.dataInfo[0];
 		}
 		return (
-			<Modal showClose={true}>
+			<Modal showClose={true} viewWin={this.props.viewWin}>
 			<div className="ViewOrg">
 			<Appbar className="mui--text-left">
 			{objData.NameOrgShort}

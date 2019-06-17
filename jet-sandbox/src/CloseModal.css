@@ -10,3 +10,9 @@ styles for CloseModal component
 	top: 4%;
 	z-index: 2019;
 }
+.CloseModal-right:hover {
+	cursor: pointer;
+}
+.CloseModal-right:active {
+	border: 1px solid cyan;
+}

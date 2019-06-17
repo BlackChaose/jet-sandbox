@@ -20,7 +20,7 @@ class CloseModal extends React.Component{
 	render(){
 		let { children, className, ...reactProps } = this.props;
 		return (
-			<img className={'CloseModal-' + this.props.moveTo} src="img/window-close-regular.svg" width={this.props.width}/>
+			<div className="CloseModal-right"><img className={'CloseModal-' + this.props.moveTo} src="img/window-close-regular.svg" width={this.props.width}/></div>
 			);
 	}
 }

@@ -16,24 +16,30 @@ class Modal extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-		openModalWIndow: true,
+		openModalWindow: true,
+		viewWin: true,
 		};		
 	}
-	closeModalWindow(){
-		console.log();
+	closeModalWindow(e){
+		e.preventDefault();
+		console.log(e.currentTagret);
+		console.log("close!");
+		this.setState({viewWin: false});
 	}
 
 	showCloseModal(){
 		if(this.props.showClose){
-			return <CloseModal moveTo="right" width="24px" onClick={this.closeModalWindow}></CloseModal>
+			return <CloseModal moveTo="right" width="24px" onClick={this.closeModalWindow.bind(this)}></CloseModal>
 		}
 		else return null;
 	}
 
+	/*fixme - разберись со стейтами !!!*/
+
 	render(){
 		let { children, className, ...reactProps } = this.props;
 		return ( 
-		<div className="Modal">
+		<div className="Modal" style={{display: this.state.viewWin}}>
 		{this.showCloseModal()}
 		{children}
 		</div>
